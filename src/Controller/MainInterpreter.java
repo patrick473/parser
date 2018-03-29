@@ -1,14 +1,17 @@
 package Controller;
 
 import Model.AndExpression;
+import Model.Expression;
 import Model.OrExpression;
 import Model.TerminalExpression;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainInterpreter {
-    public String interpret(String context) {
+    static ArrayList<Expression> buildInterpreterTree(){
 
-        String[] split = context.split(" ");
-
+        ArrayList<Expression> expresions = new ArrayList<Expression>();
         TerminalExpression te1 = new TerminalExpression("brood", "bread");
         TerminalExpression te2 = new TerminalExpression("man", "man");
         TerminalExpression te3 = new TerminalExpression("boer", "farmer");
@@ -40,10 +43,19 @@ public class MainInterpreter {
 
         AndExpression predicative = new AndExpression(articles, nouns);
 
+        expresions.add(predicative);
+        expresions.add(verbs);
+        expresions.add(predicative);
+        return expresions;
 
-        AndExpression sent1 = new AndExpression(predicative, verbs);
-        AndExpression sentence = new AndExpression(sent1, predicative);
+    }
+    public String interpret(String context) {
 
+        String[] split = context.split(" ");
+
+
+        ArrayList<Expression> IT = buildInterpreterTree();
+      
         String result;
 
         String pred1, verb, pred2;
@@ -52,7 +64,7 @@ public class MainInterpreter {
         verb = split[2];
         pred2 = split[3] + " " + split[4];
 
-        result = predicative.interpret(pred1) + " " + verbs.interpret(verb) + " " + predicative.interpret(pred2);
+        result = IT.get(0).interpret(pred1) + " " + IT.get(1).interpret(verb) + " " + IT.get(2).interpret(pred2);
         if (result.contains("false")) {
 
             result = "false";
