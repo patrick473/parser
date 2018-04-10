@@ -6,7 +6,7 @@ import Model.OrExpression;
 import Model.TerminalExpression;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class MainInterpreter {
     static ArrayList<Expression> buildInterpreterTree(){
@@ -55,7 +55,7 @@ public class MainInterpreter {
 
 
         ArrayList<Expression> IT = buildInterpreterTree();
-      
+
         String result;
 
         String pred1, verb, pred2;
