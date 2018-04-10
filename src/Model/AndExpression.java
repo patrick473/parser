@@ -24,8 +24,8 @@ public class AndExpression extends Expression{
     public void setExp2(Expression exp2) {
         this.exp2 = exp2;
     }
-    public String interpret(String dutch){
-
+    public String interpret(String dutch) {
+        System.out.println(dutch);
         String[] splitteddutch = dutch.split(" ");
         String result1 = "";
         String result2 = "";
@@ -48,7 +48,6 @@ public class AndExpression extends Expression{
         else{
             return result1 + " "+ result2;
         }
-
 
     }
 }

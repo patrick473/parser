@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 
 public class MainInterpreter {
+    picturerepresentation pir = new picturerepresentation();
     static ArrayList<Expression> buildInterpreterTree(){
 
         ArrayList<Expression> expresions = new ArrayList<Expression>();
@@ -68,6 +69,9 @@ public class MainInterpreter {
         if (result.contains("false")) {
 
             result = "false";
+        }
+        if (!"false".equals(result)){
+            pir.searchpicture(context);
         }
         return result;
     }
