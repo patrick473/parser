@@ -25,7 +25,7 @@ public class AndExpression extends Expression{
         this.exp2 = exp2;
     }
     public String interpret(String dutch) {
-        System.out.println(dutch);
+
         String[] splitteddutch = dutch.split(" ");
         String result1 = "";
         String result2 = "";
