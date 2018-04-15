@@ -44,6 +44,7 @@ public class picturerepresentation {
         for (PictureObject i: POS){
 
             if( i.getDutchText().equals(context)){
+                System.out.println("\""+context+"\" in plaatjes formaat is:");
                 System.out.println(i.getRepresentingPicture());
             }
         }

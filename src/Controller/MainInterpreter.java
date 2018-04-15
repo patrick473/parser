@@ -60,7 +60,9 @@ public class MainInterpreter {
         String result;
 
         String pred1, verb, pred2;
-
+        if(split.length <5){
+            return "zin te kort";
+        }
         pred1 = split[0] + " " + split[1];
         verb = split[2];
         pred2 = split[3] + " " + split[4];
